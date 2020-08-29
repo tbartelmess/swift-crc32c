@@ -20,7 +20,10 @@ let package = Package(
     targets: [
         .target(
             name: "CRC32C",
-            dependencies: ["CIntelCRC"]),
+            dependencies: ["CIntelCRC"],
+            swiftSettings: [
+            .define("USE_HARDWARE")
+        ]),
         .target(name: "CIntelCRC",
                 dependencies: [],
                 cSettings: [

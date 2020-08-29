@@ -20,6 +20,15 @@ crc.finalize()
 crc.value
 ```
 
+## Performance
+
+When using an Intel CPU with a SSE 4.2 instruction set, the specialized `CRC` instruction is used. On other CPUs the calculation falls back to a generic software implemenation.
+
+With SSE 4.2 you can expect a speedup of about 5x.
+
+Below is a chart with the average runtime to calcluate the CRC32-C of a 1GB file on an 8th Gen "Coffee Lake" Intel Core i9 with 2.9 GHz.
+
+![performance graph](performance.png)
 
 ## License
 

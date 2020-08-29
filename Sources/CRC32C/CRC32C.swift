@@ -32,7 +32,7 @@ public struct CRC32C {
 
     mutating private func crc32IntelSSE42(_ data: [UInt8]) {
         value = data.withUnsafeBytes { (ptr) in
-            crc32c_append_hw(value, ptr.bindMemory(to: UInt8.self).baseAddress, data.count)
+            intel_crc(value, ptr.bindMemory(to: UInt8.self).baseAddress, data.count)
         }
     }
 
