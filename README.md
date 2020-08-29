@@ -13,6 +13,9 @@ var crc = CRC32C()
 // Feed in data
 crc.update([0x01, 0x02, 0x03])
 
+// Finalize
+crc.finalize()
+
 // Get the result
 crc.value
 ```

@@ -4,15 +4,22 @@
 import PackageDescription
 
 let package = Package(
-    name: "Swift-CRC32C",
+    name: "CRC32C",
     products: [
         .library(
-            name: "Swift-CRC32C",
-            targets: ["Swift-CRC32C"]),
+            name: "CRC32C",
+            targets: ["CRC32C"]),
+        .executable(name: "GenerateLookupTable",
+                    targets: ["GenerateLookupTable"]),
+        .executable(name: "crc32c",
+                    targets: ["crc32c-tool"])
+    ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.15.0"),
     ],
     targets: [
         .target(
-            name: "Swift-CRC32C",
+            name: "CRC32C",
             dependencies: ["CIntelCRC"]),
         .target(name: "CIntelCRC",
                 dependencies: [],
@@ -20,7 +27,11 @@ let package = Package(
                     .unsafeFlags(["-msse4.2"]),
                 ]),
         .testTarget(
-            name: "Swift-CRC32CTests",
-            dependencies: ["Swift-CRC32C"]),
+            name: "CRC32CTests",
+            dependencies: ["CRC32C"]),
+        .target(name: "GenerateLookupTable"),
+        .target(name: "crc32c-tool",
+                dependencies:["CRC32C",
+                              .product(name: "NIO", package: "swift-nio")])
     ]
 )
