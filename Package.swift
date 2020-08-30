@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "CRC32C",
+    name: "swift-crc32c",
     products: [
         .library(
             name: "CRC32C",

@@ -20,6 +20,14 @@ crc.finalize()
 crc.value
 ```
 
+## Swift Package Manager
+
+To use this package in a SPM based project, add
+```
+.package(url: "https://github.com/tbartelmess/swift-crc32c.git", from: "0.1.0")
+```
+to your `package.json`.
+
 ## Performance
 
 When using an Intel CPU with a SSE 4.2 instruction set, the specialized `CRC` instruction is used. On other CPUs the calculation falls back to a generic software implemenation.
