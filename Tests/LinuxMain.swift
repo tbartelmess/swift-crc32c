@@ -1,7 +1,8 @@
 import XCTest
 
-import Swift_CRC32Tests
+import CRC32CTests
 
 var tests = [XCTestCaseEntry]()
-tests += Swift_CRC32Tests.allTests()
+tests += CRC32CTests.__allTests()
+
 XCTMain(tests)

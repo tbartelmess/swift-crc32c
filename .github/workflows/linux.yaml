@@ -1,0 +1,22 @@
+name: "Run Tests on Linux"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [  main  ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: fwal/setup-swift@v1.3.0
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Show Swift Version
+      run: swift --version
+    - name: Build
+      run: swift build
+    - name: Test
+      run: swift test
