@@ -9,6 +9,9 @@ let package = Package(
         .library(
             name: "CRC32C",
             targets: ["CRC32C"]),
+        .library(
+            name: "CRC32CNIOSupport",
+            targets: ["CRC32C", "CRC32CNIOSupport"]),
         .executable(name: "GenerateLookupTable",
                     targets: ["GenerateLookupTable"]),
         .executable(name: "crc32c",
