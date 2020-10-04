@@ -15,6 +15,7 @@ static inline uint32_t shift(const uint32_t table[][256], uint32_t crc)
         ^ table[3][crc >> 24];
 }
 
+__attribute__((target("sse4.2")))
 uint32_t intel_crc(uint32_t crc, const uint8_t* data, size_t length)
 {
     const uint8_t* next = data;
