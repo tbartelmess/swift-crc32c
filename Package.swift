@@ -24,11 +24,7 @@ let package = Package(
             swiftSettings: [
             .define("USE_HARDWARE")
         ]),
-        .target(name: "CIntelCRC",
-                dependencies: [],
-                cSettings: [
-                    .unsafeFlags(["-msse4.2"]),
-                ]),
+        .target(name: "CIntelCRC"),
         .testTarget(
             name: "CRC32CTests",
             dependencies: ["CRC32C"]),
