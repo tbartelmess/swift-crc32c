@@ -26,6 +26,10 @@ public struct CRC32C {
         update(Array<UInt8>(data))
     }
 
+    public mutating func update<T: RandomAccessCollection>(_ data: T) where T.Element == UInt8 {
+        update(Array<UInt8>(data))
+    }
+
     public mutating func finalize() {
           value = ~value
     }

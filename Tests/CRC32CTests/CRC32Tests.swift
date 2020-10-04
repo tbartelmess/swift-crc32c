@@ -1,5 +1,5 @@
 import XCTest
-@testable import CRC32C
+import CRC32C
 
 final class Swift_CRC32Tests: XCTestCase {
     func testSimpleNumbersCRC32() {

@@ -24,10 +24,17 @@ let package = Package(
             swiftSettings: [
             .define("USE_HARDWARE")
         ]),
+        .target(name: "CRC32CNIOSupport",
+                dependencies: ["CRC32C",
+                               .product(name: "NIO", package: "swift-nio")]),
         .target(name: "CIntelCRC"),
         .testTarget(
             name: "CRC32CTests",
             dependencies: ["CRC32C"]),
+        .testTarget(
+            name: "CRC32CNIOSupportTests",
+            dependencies: ["CRC32CNIOSupport",
+                           .product(name: "NIO", package: "swift-nio")]),
         .target(name: "GenerateLookupTable"),
         .target(name: "crc32c-tool",
                 dependencies:["CRC32C",
