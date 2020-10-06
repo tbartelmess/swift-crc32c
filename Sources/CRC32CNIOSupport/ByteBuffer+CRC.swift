@@ -7,7 +7,8 @@ extension ByteBuffer {
             return ~0
         }
         var crc = CRC32C()
-        crc.update(view)
+
+        crc.update(view[view.startIndex..<view.endIndex])
         crc.finalize()
         return crc.value
     }
